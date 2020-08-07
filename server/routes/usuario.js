@@ -61,7 +61,7 @@ app.post('/usuario', [VerificaToken, VerificaAdmin_Role], (req, res) => {
     })
 });
 
-app.put('/usuario/:id', VerificaToken, (req, res) => {
+app.put('/usuario/:id', [VerificaToken, VerificaAdmin_Role], (req, res) => {
     let id = req.params.id;
     let body = _.pick(req.body, ['name', 'email', 'img', 'role', 'estado']);
 
